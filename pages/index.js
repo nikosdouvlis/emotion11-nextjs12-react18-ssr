@@ -41,7 +41,7 @@ const SSRDemoLink = () => (
 );
 
 const MiddlewareProtectedPageLink = () => (
-  <a href="/protected-pages">
+  <Link href="/protected-pages">
     <a className={styles.cardContent}>
       <img src="/icons/layout.svg" />
       <div>
@@ -52,7 +52,7 @@ const MiddlewareProtectedPageLink = () => (
         <img src="/icons/arrow-right.svg" />
       </div>
     </a>
-  </a>
+  </Link>
 );
 
 const SignupLink = () => (

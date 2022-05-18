@@ -2,10 +2,23 @@ import styles from "../../styles/Home.module.css";
 import { withServerSideAuth } from "@clerk/nextjs/ssr";
 import { useUser } from "@clerk/nextjs";
 import React from "react";
+import styled from "@emotion/styled";
 
 const mockGetPosts = (userId) => {
   return Promise.resolve([{ title: "A Post", content: "Hello from Clerk + Remix" }]);
 };
+
+const StyledButton = styled.button`
+  color: hotpink;
+  background-color: gainsboro;
+  padding: 1rem;
+  margin: 1rem;
+  font-size: 2rem;
+`;
+
+const StyledButton2 = styled(StyledButton)`
+  background-color: greenyellow;
+`;
 
 export const getServerSideProps = withServerSideAuth(
   async ({ req, resolvedUrl }) => {
@@ -34,6 +47,9 @@ const SSRDemoPage = ({ posts }) => {
 
   return (
     <div className={styles.container}>
+      <StyledButton className={"cl-styled-button"}>StyledButton</StyledButton>
+      <StyledButton2 className={"cl-styled-button"}>StyledButton2</StyledButton2>
+      <StyledButton2>StyledButton2 no class</StyledButton2>
       <main className={styles.main}>
         <h1 className={styles.title}>SSR Demo page</h1>
         <p className={styles.description}>

@@ -22,3 +22,7 @@ a {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.cl-styled-button {
+  color: green;
+}
