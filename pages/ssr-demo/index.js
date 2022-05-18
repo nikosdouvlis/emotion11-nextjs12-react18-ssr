@@ -35,6 +35,10 @@ export const getServerSideProps = withServerSideAuth(
   { loadUser: true }
 );
 
+const Spinner = () => {
+  return <div>loading........</div>;
+};
+
 const SSRDemoPage = ({ posts }) => {
   const { isSignedIn, isLoaded, user } = useUser();
 
@@ -50,6 +54,7 @@ const SSRDemoPage = ({ posts }) => {
       <StyledButton className={"cl-styled-button"}>StyledButton</StyledButton>
       <StyledButton2 className={"cl-styled-button"}>StyledButton2</StyledButton2>
       <StyledButton2>StyledButton2 no class</StyledButton2>
+
       <main className={styles.main}>
         <h1 className={styles.title}>SSR Demo page</h1>
         <p className={styles.description}>

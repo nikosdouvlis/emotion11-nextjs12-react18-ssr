@@ -4,7 +4,15 @@ import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { withServerSideAuth } from "@clerk/nextjs/ssr";
+import { lazy, Suspense } from "react";
 
+const Dynamic1 = lazy(() => import("../components/Dynamic1"));
+const Dynamic2 = lazy(() => import("../components/Dynamic2"));
+const Dynamic3 = lazy(() => import("../components/Dynamic3"));
+
+const Spinner = () => {
+  return <div>loading........</div>;
+};
 export const getServerSideProps = withServerSideAuth();
 
 const ClerkFeatures = () => (
@@ -166,6 +174,15 @@ const APIRequest = () => {
   };
   return (
     <div className={styles.backend}>
+      <Suspense fallback={<Spinner />}>
+        <Dynamic1 />
+      </Suspense>
+      <Suspense fallback={<Spinner />}>
+        <Dynamic2 />
+      </Suspense>
+      <Suspense fallback={<Spinner />}>
+        <Dynamic3 />
+      </Suspense>
       <h2>API request example</h2>
       <div className={styles.card}>
         <button target="_blank" rel="noopener" className={styles.cardContent} onClick={() => makeRequest()}>
